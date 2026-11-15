@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>COLUMBUS | My Personal Website</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #050816;
+            color: white;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            background: rgba(5, 8, 22, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #38bdf8;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+            background:
+                radial-gradient(circle at top, #172554 0%, #050816 55%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 10vw, 100px);
+            color: #38bdf8;
+            text-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .typing {
+            color: #94a3b8;
+            font-size: 20px;
+            min-height: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 14px 28px;
+            border: 2px solid #38bdf8;
+            border-radius: 30px;
+            color: #38bdf8;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #38bdf8;
+            color: #050816;
+            box-shadow: 0 0 25px #38bdf8;
+        }
+
+        /* GENERAL */
+        section {
+            padding: 90px 8%;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 40px;
+            color: #38bdf8;
+            margin-bottom: 50px;
+        }
+
+        /* ABOUT */
+        .about {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            color: #cbd5e1;
+            line-height: 1.9;
+            font-size: 18px;
+        }
+
+        /* PROFILE */
+        .profile {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 35px;
+            background: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.08);
+        }
+
+        .profile p {
+            padding: 12px;
+            border-bottom: 1px solid #1e293b;
+            color: #cbd5e1;
+        }
+
+        .profile strong {
+            color: #38bdf8;
+        }
+
+        /* INTERESTS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .card {
+            background: #0f172a;
+            border: 1px solid #1e293b;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 18px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+        }
+
+        .card .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #38bdf8;
+        }
+
+        /* SKILLS */
+        .skills {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .skill {
+            margin-bottom: 25px;
+        }
+
+        .skill-name {
+            margin-bottom: 8px;
+        }
+
+        .bar {
+            height: 12px;
+            background: #1e293b;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: #38bdf8;
+            border-radius: 20px;
+        }
+
+        /* STORY */
+        .story {
+            max-width: 900px;
+            margin: auto;
+            color: #cbd5e1;
+            line-height: 1.9;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* FUTURE */
+        .future {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .future h3 {
+            font-size: 30px;
+            color: #38bdf8;
+            margin-bottom: 20px;
+        }
+
+        .future p {
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #020617;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
+        }
+
+        .glow {
+            color: #38bdf8;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">COLUMBUS</div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#future">Future</a></li>
+    </ul>
+</nav>
+
+
+<!-- HOME -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>COLUMBUS</h1>
+
+        <h2>Future Computer Designer</h2>
+
+        <div class="typing" id="typing"></div>
+
+        <a href="#about" class="button">Explore My Website</a>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+    <h2 class="title">About Me</h2>
+
+    <div class="about">
+
+        <p>
+            Hello! My name is <span class="glow">Columbus Panday</span>.
+            I am a young learner who is interested in computers,
+            programming, game development and technology.
+        </p>
+
+        <br>
+
+        <p>
+            I enjoy learning new things and experimenting with technology.
+            Coding is one of my favorite hobbies because it allows me
+            to create games, websites and different digital projects.
+        </p>
+
+    </div>
+
+
+    <div class="profile">
+
+        <p><strong>Name:</strong> Columbus Panday</p>
+
+        <p><strong>Age:</strong> 11</p>
+
+        <p><strong>Class:</strong> 7</p>
+
+        <p><strong>Hobby:</strong> Coding</p>
+
+        <p><strong>Dream:</strong> Become a great computer designer</p>
+
+        <p><strong>Net Worth:</strong> 0 — I am currently learning and building my skills</p>
+
+    </div>
+
+</section>
+
+
+<!-- INTERESTS -->
+<section id="interests">
+
+    <h2 class="title">My Interests</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">💻</div>
+            <h3>Computers</h3>
+        </div>
+
+        <div class="card">
+            <div class="icon">🐍</div>
+            <h3>Programming</h3>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎮</div>
+            <h3>Game Development</h3>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌐</div>
+            <h3>Web Development</h3>
+        </div>
+
+        <div class="card">
+            <div class="icon">🤖</div>
+            <h3>Technology</h3>
+        </div>
+
+        <div class="card">
+            <div class="icon">🚀</div>
+            <h3>Learning</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills">
+
+    <h2 class="title">My Skills</h2>
+
+    <div class="skills">
+
+        <div class="skill">
+            <div class="skill-name">Python</div>
+
+            <div class="bar">
+                <div class="progress" style="width: 75%;"></div>
+            </div>
+        </div>
+
+
+        <div class="skill">
+            <div class="skill-name">HTML</div>
+
+            <div class="bar">
+                <div class="progress" style="width: 70%;"></div>
+            </div>
+        </div>
+
+
+        <div class="skill">
+            <div class="skill-name">Game Development</div>
+
+            <div class="bar">
+                <div class="progress" style="width: 60%;"></div>
+            </div>
+        </div>
+
+
+        <div class="skill">
+            <div class="skill-name">Problem Solving</div>
+
+            <div class="bar">
+                <div class="progress" style="width: 80%;"></div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STORY -->
+<section>
+
+    <h2 class="title">My Story</h2>
+
+    <div class="story">
+
+        <p>
+            My journey with computers is just beginning.
+            I am curious about how websites, games and applications
+            are created. Every time I write code, I learn something new.
+        </p>
+
+        <br>
+
+        <p>
+            I believe that great technology starts with curiosity,
+            creativity and continuous learning. My goal is to keep
+            improving my programming skills and eventually create
+            impressive computer projects of my own.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FUTURE -->
+<section id="future">
+
+    <h2 class="title">My Future</h2>
+
+    <div class="future">
+
+        <h3>🚀 My Dream</h3>
+
+        <p>
+            My dream is to become a great computer designer and
+            technology creator. I want to learn programming,
+            build useful applications, create games and explore
+            new technologies.
+        </p>
+
+        <br>
+
+        <p>
+            This website is only the beginning of my journey.
+            I will continue learning, creating and improving.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © 2026 <span class="glow">COLUMBUS</span>
+    </p>
+
+    <p>
+        Built with HTML, CSS & JavaScript
+    </p>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+<script>
+
+const texts = [
+    "I love coding 💻",
+    "I am learning Python 🐍",
+    "I want to create games 🎮",
+    "I am exploring technology 🚀",
+    "I am building my future 🌟"
+];
+
+let textIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+const typing = document.getElementById("typing");
+
+function typeEffect() {
+
+    const currentText = texts[textIndex];
+
+    if (!deleting) {
+
+        typing.textContent =
+            currentText.substring(0, charIndex + 1);
+
+        charIndex++;
+
+        if (charIndex === currentText.length) {
+
+            deleting = true;
+
+            setTimeout(typeEffect, 1500);
+
+            return;
+        }
+
+    } else {
+
+        typing.textContent =
+            currentText.substring(0, charIndex - 1);
+
+        charIndex--;
+
+        if (charIndex === 0) {
+
+            deleting = false;
+
+            textIndex++;
+
+            if (textIndex === texts.length) {
+                textIndex = 0;
+            }
+        }
+    }
+
+    setTimeout(typeEffect, deleting ? 45 : 80);
+}
+
+typeEffect();
+
+</script>
+
+</body>
+</html>
